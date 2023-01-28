@@ -27,7 +27,7 @@ public class MovieRepository {
     }
 
     public void addMovieDirectorPair(String MovieName,String DirectorName) {
-        if (directorMovieMapping.containsKey(DirectorName) && movieMap.containsKey(MovieName)) {
+        if (directorMap.containsKey(DirectorName) && movieMap.containsKey(MovieName)) {
             movieMap.put(MovieName, movieMap.get(MovieName));
             directorMap.put(DirectorName, directorMap.get(DirectorName));
             List<String> currMovies = new ArrayList<String>();
@@ -65,8 +65,10 @@ public class MovieRepository {
             directorMovieMapping.remove(directorName);
         }
 
-        if(directorMap.containsKey(directorName))
-                  directorMap.remove(directorName);
+
+        if(directorMap.containsKey(directorName)) {
+            directorMap.remove(directorName);
+        }
     }
     public void deleteAllDirectors(){
         HashSet<String> moviesSet = new HashSet<>();
