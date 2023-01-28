@@ -31,37 +31,37 @@ public class MovieController {
     @GetMapping("/get-movies-by-name/{name}")
     public ResponseEntity<Movie> getMoviesByName(@PathVariable String movieName){
         Movie movie = movieService.getMovieByName(movieName);
-        return new ResponseEntity<>(movie, HttpStatus.FOUND);
+        return new ResponseEntity<>(movie, HttpStatus.CREATED);
     }
 
     @GetMapping("/get-director-by-name/{name}")
     public ResponseEntity<Director> getDirectorByName(@PathVariable String directorName){
         Director director = movieService.getDirectorByName(directorName);
-        return new ResponseEntity<>(director, HttpStatus.FOUND);
+        return new ResponseEntity<>(director, HttpStatus.CREATED);
     }
 
     @GetMapping("/get-movies-by-director-name/{director}")
     public ResponseEntity<List<String>> getMoviesByDirectorName(@PathVariable String directorName){
         List<String> movies = movieService.getMoviesByDirectorName(directorName);
-        return new ResponseEntity<>(movies, HttpStatus.FOUND);
+        return new ResponseEntity<>(movies, HttpStatus.CREATED);
     }
 
     @GetMapping("/get-all-movies")
     public ResponseEntity<List<String>> findAllMovies(){
         List<String> movies = movieService.findAllMovies();
-        return new ResponseEntity<>(movies, HttpStatus.FOUND);
+        return new ResponseEntity<>(movies, HttpStatus.CREATED);
     }
 
     @DeleteMapping( "/delete-director-by-name")
     public ResponseEntity<String> deleteDirectorByName(@RequestParam String directorName){
         movieService.deleteDirectorByName(directorName);
-        return new ResponseEntity<>(directorName + " removed successfully", HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(directorName + " removed successfully", HttpStatus.CREATED);
     }
 
     @DeleteMapping( "/delete-all-directors")
     public ResponseEntity<String> deleteAllDirectors(){
         movieService.deleteAllDirectors();
-        return new ResponseEntity<>("All directors deleted successfully", HttpStatus.ACCEPTED);
+        return new ResponseEntity<>("All directors deleted successfully", HttpStatus.CREATED);
     }
 
 }
