@@ -30,7 +30,7 @@ public class MovieController {
     }
 
     @GetMapping("/get-movies-by-name/{name}")
-    public ResponseEntity<Movie> getMoviesByName(@PathVariable String movieName){
+    public ResponseEntity<Movie> getMovieByName(@PathVariable String movieName){
         Movie movie = movieService.getMovieByName(movieName);
         return new ResponseEntity<>(movie, HttpStatus.CREATED);
     }
